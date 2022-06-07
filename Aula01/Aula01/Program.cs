@@ -55,7 +55,7 @@ namespace Program
     {
         static void Main(string[] args)
         {
-          /* 1 
+          /* 1 */
             string nome;
             string endereco;
             int cep;
@@ -72,9 +72,9 @@ namespace Program
             Console.WriteLine("Nome:" + nome);
             Console.WriteLine("Endereço:" + endereco);
             Console.WriteLine("CEP:" + cep);
-            Console.WriteLine("Telefone:" + telefone); */
+            Console.WriteLine("Telefone:" + telefone); 
 
-            /* 2 
+            /* 2 */
             int num;
             Mulheres[] womanTech = new Mulheres[3];
             womanTech[0] = new Mulheres();
@@ -125,7 +125,7 @@ namespace Program
                 Console.WriteLine(womanTech[2].nome);
                 Console.WriteLine(womanTech[2].historia);
                 Console.WriteLine(womanTech[2].contribuicao);
-            }*/
+            }
             /* 3 */
            
 
