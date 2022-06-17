@@ -32,6 +32,11 @@ namespace Aula_5
                     Voo voo = new Voo();
                     voo.Executar();
                 }
+                else
+                {
+                    Calculadora calculadora = new Calculadora();
+                    calculadora.Executar();
+                }
 
 
                 Console.WriteLine("Deseja executar o outro programa?");
