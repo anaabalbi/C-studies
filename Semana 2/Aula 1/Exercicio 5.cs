@@ -10,6 +10,7 @@ namespace Aula_6
     {
         private string entrada;
         private string iniciais="";
+        
 
        public ManipulaString(string entrada)
         {
@@ -68,6 +69,24 @@ namespace Aula_6
                 invertido= invertido + entrada[i];
             }
             Console.WriteLine(invertido);
+        }
+
+        public void Conta()
+        {
+            int consoantes = 0;
+            int vogais = 0;
+            for(int i=0; i < entrada.Length; i++)
+            {
+                if (Convert.ToChar(entrada[i])==65 || Convert.ToChar(entrada[i]) == 69 || Convert.ToChar(entrada[i]) == 73  || Convert.ToChar(entrada[i]) == 79 || Convert.ToChar(entrada[i]) == 85 
+                    || Convert.ToChar(entrada[i]) == 97 || Convert.ToChar(entrada[i]) == 101 || Convert.ToChar(entrada[i]) == 105 || Convert.ToChar(entrada[i]) == 111 || Convert.ToChar(entrada[i]) == 117)
+                {
+                    vogais++;
+                } else if ((Convert.ToChar(entrada[i]) > 97 && Convert.ToChar(entrada[i]) <= 122) || (Convert.ToChar(entrada[i]) >65 && Convert.ToChar(entrada[i])<=90))
+                {
+                    consoantes++;
+                }
+            }
+            Console.WriteLine($"Vogais: {vogais} | Consoantes: {consoantes}");
         }
     }
 }
