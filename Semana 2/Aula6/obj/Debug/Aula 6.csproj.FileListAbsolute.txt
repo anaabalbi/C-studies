@@ -6,3 +6,11 @@ C:\Users\anaab\OneDrive\Área de Trabalho\C#\Semana 2\Aula 1\obj\Debug\Aula 1.pd
 C:\Users\anaab\OneDrive\Área de Trabalho\C#\Semana 2\Aula 1\bin\Debug\Aula 1.exe.config
 C:\Users\anaab\OneDrive\Área de Trabalho\C#\Semana 2\Aula 1\bin\Debug\Aula 1.exe
 C:\Users\anaab\OneDrive\Área de Trabalho\C#\Semana 2\Aula 1\bin\Debug\Aula 1.pdb
+C:\Users\anaab\OneDrive\Área de Trabalho\C#\Semana 2\Aula6\bin\Debug\Aula 1.exe.config
+C:\Users\anaab\OneDrive\Área de Trabalho\C#\Semana 2\Aula6\bin\Debug\Aula 1.exe
+C:\Users\anaab\OneDrive\Área de Trabalho\C#\Semana 2\Aula6\bin\Debug\Aula 1.pdb
+C:\Users\anaab\OneDrive\Área de Trabalho\C#\Semana 2\Aula6\obj\Debug\Aula 6.csproj.AssemblyReference.cache
+C:\Users\anaab\OneDrive\Área de Trabalho\C#\Semana 2\Aula6\obj\Debug\Aula 6.csproj.SuggestedBindingRedirects.cache
+C:\Users\anaab\OneDrive\Área de Trabalho\C#\Semana 2\Aula6\obj\Debug\Aula 6.csproj.CoreCompileInputs.cache
+C:\Users\anaab\OneDrive\Área de Trabalho\C#\Semana 2\Aula6\obj\Debug\Aula 1.exe
+C:\Users\anaab\OneDrive\Área de Trabalho\C#\Semana 2\Aula6\obj\Debug\Aula 1.pdb

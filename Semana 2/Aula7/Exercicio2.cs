@@ -9,7 +9,7 @@ namespace Aula7
     internal class SistemaLogin
     {
         
-        static List<BD> listaLogin;
+        private List<BD> listaLogin;
 
         
 

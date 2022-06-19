@@ -10,7 +10,7 @@ namespace Aula7
     {
         static void Main(string[] args)
         {
-            SistemaLogin login = new SistemaLogin();
+            Aluno aluno = new Aluno();
         }
     }
 }

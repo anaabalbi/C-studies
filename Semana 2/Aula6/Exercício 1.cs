@@ -53,7 +53,7 @@ namespace Aula_6
                         (jogo[0, 0] == "X" && jogo[1, 0] == "X" && jogo[2, 0] == "X") ||
                         (jogo[0, 1] == "X" && jogo[1, 1] == "X" && jogo[2, 1] == "X") ||
                         (jogo[0, 0] == "X" && jogo[1, 1] == "X" && jogo[2, 2] == "X") ||
-                        (jogo[0, 2] == "X" && jogo[1, 1] == "X" && jogo[0, 2] == "X") ||
+                        (jogo[2, 0] == "X" && jogo[1, 1] == "X" && jogo[0, 2] == "X") ||
                         (jogo[2, 0] == "X" && jogo[2, 1] == "X" && jogo[2, 2] == "X") ||
                         (jogo[1, 0] == "X" && jogo[1, 1] == "X" && jogo[1, 2] == "X") ||
                         (jogo[0, 2] == "X" && jogo[2, 1] == "X" && jogo[2, 2] == "X"))
