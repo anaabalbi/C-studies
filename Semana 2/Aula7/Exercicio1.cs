@@ -13,7 +13,7 @@ namespace Aula7
 
         public Aluno() {
             aluno = new List<BDAluno>(){
-                    new BDAluno(1234567, "Ana Amelia Balbi", 9.6, 7.8, 6.5 ),
+                    new BDAluno(1234567, "Ana Amelia", 9.6, 7.8, 6.5 ),
                     new BDAluno(1324567, "João Claúdio", 5.6, 7.0, 10.0 ),
             };
             Menu();

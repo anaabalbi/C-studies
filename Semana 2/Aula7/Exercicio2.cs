@@ -25,7 +25,7 @@ namespace Aula7
 
         private void Menu()
         {
-            Console.WriteLine("------------- AREA DE LOGIN --------");
+            Console.WriteLine("\n------------- AREA DE LOGIN --------\n");
             Console.WriteLine("1 - Logar \n" +
               "2 - Criar \n" +
               "3 - Trocar a senha");
