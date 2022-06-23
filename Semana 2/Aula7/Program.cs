@@ -13,7 +13,8 @@ namespace Aula7
             Console.WriteLine("\n------------- PROGRAMAS ------------\n");
             Console.WriteLine("1 - Area do Professor \n" +
               "2 - Entrar no sistema - Login \n" +
-              "3 - Banco");
+              "3 - Banco\n" +
+              "4 - PetShop");
             Console.Write(">");
             string opcao = Console.ReadLine();
 
@@ -28,26 +29,22 @@ namespace Aula7
                     break;
 
                 case "3":
-                    Exercicio3();
+                    ContaBancaria conta = new ContaBancaria();
                     break;
-                
+                case "4":
+                    PetShop pet = new PetShop(); 
+                    break;
+                case "5":
+                    break;
+                default:
+                    Main(args);
+                    break;
+
             }
-           
-        }
-        
-        static void Exercicio3()
-        {
-            List<ContaBancaria> contaBancarias = new List<ContaBancaria>();
-            contaBancarias = new List<ContaBancaria>()
-            {
-                new ContaBancaria(1234567, "Ana Amelia", 1000),
-                new ContaBancaria(9876543, "Jose Claudio", -50),
-
-            };
-      
-            ContaBancaria conta = new ContaBancaria(0,"");
-            conta.Menu(contaBancarias);
 
         }
-}
+     
+
+
+    }
 }

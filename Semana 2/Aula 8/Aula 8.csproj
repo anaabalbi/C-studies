@@ -4,10 +4,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{925EF56B-582A-40AC-B662-360858F96120}</ProjectGuid>
+    <ProjectGuid>{8E1899D9-D946-49C5-95B4-A881BA0CDCC6}</ProjectGuid>
     <OutputType>Exe</OutputType>
-    <RootNamespace>Aula7</RootNamespace>
-    <AssemblyName>Aula7</AssemblyName>
+    <RootNamespace>Aula_8</RootNamespace>
+    <AssemblyName>Aula 8</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -43,15 +43,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Canais.cs" />
     <Compile Include="Exercicio1.cs" />
-    <Compile Include="Exercicio2.cs" />
-    <Compile Include="Exercicio3.cs" />
-    <Compile Include="Exercicio4.cs" />
-    <Compile Include="Exercício5.cs" />
+    <Compile Include="Jogador.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Tutor.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

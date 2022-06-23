@@ -11,6 +11,13 @@ namespace Aula7
         private int conta;
         private string nome;
         private double saldo;
+        private List<ContaBancaria> contaBancarias = new List<ContaBancaria>();
+
+        public List<ContaBancaria> ContaBancarias
+        {
+            get { return contaBancarias; }
+            set { contaBancarias = value; }
+        }
         public int Conta
         {
             get { return conta; }
@@ -28,6 +35,13 @@ namespace Aula7
             set { saldo = value; }   
         }
 
+        public ContaBancaria()
+        {
+            ContaBancarias = CriarLista();
+            Menu();
+            
+        }
+
         public ContaBancaria(int conta, string nome, double saldo=0)
         {
             this.Conta = conta;
@@ -36,7 +50,19 @@ namespace Aula7
           
         }
 
-        public void Menu(List<ContaBancaria> contas)
+        private static List<ContaBancaria> CriarLista()
+        {
+            List<ContaBancaria> contaBancarias = new List<ContaBancaria>();
+            contaBancarias = new List<ContaBancaria>()
+            {
+                new ContaBancaria(1234567, "Ana Amelia", 1000),
+                new ContaBancaria(9876543, "Jose Claudio", -50),
+
+            };
+            return contaBancarias;
+        }
+
+        public void Menu()
         {
    
             Console.Clear();
@@ -52,22 +78,22 @@ namespace Aula7
             switch (opcao)
             {
                 case "1":
-                    Depositar(contas);
+                    Depositar();
                     break;
 
                 case "2":
                     Console.Clear();
-                    Sacar(contas);
+                    Sacar();
                     break;
 
                 case "3":
-                    Alterar(contas);
+                    Alterar();
                     break;
                 case "4":
-                    NovaConta(contas);
+                    NovaConta();
                     break;
                 default:
-                    Menu(contas);
+                    Menu();
                     Console.WriteLine("Pressione ENTER para sair...");
                     Console.Read();
                     break;
@@ -76,12 +102,12 @@ namespace Aula7
           
         }
 
-        private int AcessarConta(int contaCorrente, List<ContaBancaria> contas)
+        private int AcessarConta(int contaCorrente)
         {
             int resposta = -1;
-            for (int i = 0; i < contas.Count; i++)
+            for (int i = 0; i < ContaBancarias.Count; i++)
             {
-                if (contas[i].Conta == contaCorrente)
+                if (ContaBancarias[i].Conta == contaCorrente)
                 {
                     resposta = i;
                     break;
@@ -90,17 +116,17 @@ namespace Aula7
             }
             return resposta;
         }
-        private void Depositar(List<ContaBancaria> contas)
+        private void Depositar()
         {
             Console.Clear();
             Console.WriteLine("\nEntre com o número da conta que deseja Depositar");
             int contaCorrente = int.Parse(Console.ReadLine());
-            int i=AcessarConta(contaCorrente, contas);
+            int i=AcessarConta(contaCorrente);
             if (i < 0)
             {
                 Console.Clear();
                 Console.WriteLine("\nConta não encontrada, tente novamente\n");
-                Menu(contas);
+                Menu();
 
             }
             else
@@ -108,11 +134,11 @@ namespace Aula7
               
                 Console.WriteLine("\nEntre com o valor do deposito");
                 double deposito = double.Parse(Console.ReadLine());
-                contas[i].Saldo = contas[i].Saldo + deposito;
+                ContaBancarias[i].Saldo = ContaBancarias[i].Saldo + deposito;
                 Console.WriteLine("Deposito realizado com sucesso!");
                 Console.WriteLine("---------------------------------");
-                Console.WriteLine($"Conta: {contas[i].Conta} \n" +
-                    $"Nome: {contas[i].Nome}\n" +
+                Console.WriteLine($"Conta: {ContaBancarias[i].Conta} \n" +
+                    $"Nome: {ContaBancarias[i].Nome}\n" +
                     $"Valor: R${deposito}");
                 Console.WriteLine("---------------------------------");
                 Console.WriteLine("Deseja realizar outra operação?");
@@ -123,32 +149,32 @@ namespace Aula7
                 }
                 else
                 {
-                    Menu(contas);
+                    Menu();
                 }
             }
 
 
         }
 
-        private void Sacar(List<ContaBancaria> contas)
+        private void Sacar()
         {
             Console.Clear();
             Console.WriteLine("\nEntre com o número da conta que deseja Sacar");
             int contaCorrente = int.Parse(Console.ReadLine());
-            int i = AcessarConta(contaCorrente, contas);
+            int i = AcessarConta(contaCorrente);
             if (i < 0)
             {
                 Console.Clear();
                 Console.WriteLine("\nConta não encontrada, tente novamente\n");
-                Menu(contas);
+                Menu();
 
             }
             else
             {
                
-                Console.WriteLine("\nEntre com o valor do saque");
+                Console.WriteLine("Entre com o valor do saque");
                 double saque = double.Parse(Console.ReadLine());
-                ConsultaSaque(contas, saque, i);       
+                ConsultaSaque(saque, i);       
                 Console.WriteLine("Deseja realizar outra operação?");
                 string resposta = Console.ReadLine();
                 if (resposta != "sim")
@@ -157,23 +183,24 @@ namespace Aula7
                 }
                 else
                 {
-                    Menu(contas);
+                    Menu();
                 }
             }
 
         }
 
-        private void ConsultaSaque(List<ContaBancaria> contas, double saque, int i)
+        private void ConsultaSaque(double saque, int i)
         {
-            if (saque <= contas[i].Saldo)
+            if (saque <= ContaBancarias[i].Saldo)
             {
-                contas[i].Saldo = contas[i].Saldo - saque;
+                Console.Clear();
+                ContaBancarias[i].Saldo = ContaBancarias[i].Saldo - saque;
                 Console.WriteLine("Saque realizado com sucesso!");
                 Console.WriteLine("---------------------------------");
-                Console.WriteLine($"Conta: {contas[i].Conta} \n" +
-                    $"Nome: {contas[i].Nome}\n" +
-                    $"Valor: R${saque}\n+" +
-                    $"Saldo atual: R${contas[i].Saldo}");
+                Console.WriteLine($"Conta: {ContaBancarias[i].Conta} \n" +
+                    $"Nome: {ContaBancarias[i].Nome}\n" +
+                    $"Valor: R${saque}\n" +
+                    $"Saldo atual: R${ContaBancarias[i].Saldo}");
                 Console.WriteLine("---------------------------------");
             }
             else
@@ -182,17 +209,17 @@ namespace Aula7
             }
         }
 
-        private void Alterar(List<ContaBancaria> contas)
+        private void Alterar()
         {
             Console.Clear();
             Console.WriteLine("\nEntre com o número da conta que deseja alterar o nome");
             int contaCorrente = int.Parse(Console.ReadLine());
-            int i = AcessarConta(contaCorrente, contas);
+            int i = AcessarConta(contaCorrente);
             if (i < 0)
             {
                 Console.Clear();
                 Console.WriteLine("\nConta não encontrada, tente novamente\n");
-                Menu(contas);
+                Menu();
 
             }
             else
@@ -200,11 +227,11 @@ namespace Aula7
                 
                 Console.WriteLine("\nEntre com o novo nome");
                 string novoNome = Console.ReadLine();
-                contas[i].Nome = novoNome;
+                ContaBancarias[i].Nome = novoNome;
                 Console.WriteLine("Nome trocado com sucesso!");
                 Console.WriteLine("---------------------------------");
-                Console.WriteLine($"Conta: {contas[i].Conta} \n" +
-                    $"Nome: {contas[i].Nome}");
+                Console.WriteLine($"Conta: {ContaBancarias[i].Conta} \n" +
+                    $"Nome: {ContaBancarias[i].Nome}");
                 Console.WriteLine("---------------------------------");
                 Console.WriteLine("Deseja realizar outra operação?");
                 string resposta = Console.ReadLine();
@@ -214,13 +241,13 @@ namespace Aula7
                 }
                 else
                 {
-                    Menu(contas);
+                    Menu();
                 }
 
             }
         }
       
-        private void NovaConta(List<ContaBancaria> contas)
+        private void NovaConta()
         {
             Console.Clear();
             Console.WriteLine("\nEntre com o número da conta:");
@@ -232,13 +259,13 @@ namespace Aula7
             if (resposta != "sim")
             {
                 Console.Clear();
-                contas.Add(new ContaBancaria(Conta, Nome));
+                ContaBancarias.Add(new ContaBancaria(Conta, Nome));
                 Console.WriteLine("Conta criada com sucesso!");
-                int i = contas.Count -1;
+                int i = ContaBancarias.Count -1;
                 Console.WriteLine("---------------------------------");
-                Console.WriteLine($"Conta: {contas[i].Conta} \n" +
-                    $"Nome: {contas[i].Nome}\n" +
-                    $"Saldo: {contas[i].Saldo}");
+                Console.WriteLine($"Conta: {ContaBancarias[i].Conta} \n" +
+                    $"Nome: {ContaBancarias[i].Nome}\n" +
+                    $"Saldo: {ContaBancarias[i].Saldo}");
                 Console.WriteLine("---------------------------------");
                 Console.WriteLine("Deseja realizar outra operação?");
                 resposta = Console.ReadLine();
@@ -248,21 +275,21 @@ namespace Aula7
                 }
                 else
                 {
-                    Menu(contas);
+                    Menu();
                 }
             }
             else
             {
                 Console.WriteLine("Entre com o valor do Deposito");
                 Saldo = double.Parse(Console.ReadLine());
-                contas.Add(new ContaBancaria(Conta, Nome, Saldo));
+                ContaBancarias.Add(new ContaBancaria(Conta, Nome, Saldo));
                 Console.Clear();
                 Console.WriteLine("Conta criada com sucesso!");
-                int i = contas.Count - 1;
+                int i = ContaBancarias.Count - 1;
                 Console.WriteLine("---------------------------------");
-                Console.WriteLine($"Conta: {contas[i].Conta} \n" +
-                    $"Nome: {contas[i].Nome}\n" +
-                    $"Saldo: {contas[i].Saldo}");
+                Console.WriteLine($"Conta: {ContaBancarias[i].Conta} \n" +
+                    $"Nome: {ContaBancarias[i].Nome}\n" +
+                    $"Saldo: {ContaBancarias[i].Saldo}");
                 Console.WriteLine("---------------------------------");
                 Console.WriteLine("Deseja realizar outra operação?");
                 resposta = Console.ReadLine();
@@ -272,7 +299,7 @@ namespace Aula7
                 }
                 else
                 {
-                    Menu(contas);
+                    Menu();
                 }
 
             }

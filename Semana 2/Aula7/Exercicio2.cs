@@ -9,18 +9,50 @@ namespace Aula7
     internal class SistemaLogin
     {
         
-        private List<BD> listaLogin;
+        private List<SistemaLogin> listaLogin = new List<SistemaLogin>();
+        private string login;
+        private string senha;
 
+        public List<SistemaLogin> ListaLogin
+        {
+            get { return listaLogin; }
+            set { listaLogin = value; }
+        }
         
+        public string Login
+        {
+            get { return login; }
+            set { login = value; }
+        }
+
+        public string Senha
+        {
+            get { return senha; }
+            set { senha = value; }
+        }
+
+        public SistemaLogin(string login, string senha)
+        {
+            this.Login = login;
+            this.Senha = senha;
+        }
+
 
         public SistemaLogin(){
 
-            listaLogin = new List<BD>(){
-                    new BD("anaabalbi", "1234567"),
-                    new BD("revier", "seraquevai"),
-            };
+            ListaLogin = CriarLista();
             Menu();
             
+        }
+
+        private static List<SistemaLogin> CriarLista()
+        {
+            List<SistemaLogin> listaLogin = new List<SistemaLogin>();
+            listaLogin = new List<SistemaLogin>(){
+                    new SistemaLogin("anaabalbi", "1234567"),
+                    new SistemaLogin("revier", "seraquevai"),
+            };
+            return listaLogin;
         }
 
         private void Menu()
@@ -72,16 +104,16 @@ namespace Aula7
         private int CheckLogin(string usuario, string senha)
         {
             int resposta = 404;
-            for (int i = 0; i < listaLogin.Count; i++)
+            for (int i = 0; i < ListaLogin.Count; i++)
             {
-                if (listaLogin[i].Senha == senha && listaLogin[i].Login == usuario)
+                if (listaLogin[i].Senha == senha && ListaLogin[i].Login == usuario)
                 {
 
                     resposta = 200;
                     break;
 
                 }
-                else if (listaLogin[i].Senha != senha && listaLogin[i].Login == usuario)
+                else if (ListaLogin[i].Senha != senha && ListaLogin[i].Login == usuario)
                 {
                     resposta = 403;
                     break;
@@ -99,7 +131,7 @@ namespace Aula7
             Console.WriteLine("Senha:");
             Console.Write(">");
             string senha = Console.ReadLine();
-            listaLogin.Add(new BD(usuario, senha));
+            ListaLogin.Add(new SistemaLogin(usuario, senha));
             Menu();
                         
             
@@ -143,7 +175,7 @@ namespace Aula7
         private bool Update(string senha,string usuario)
         {
             bool resposta = false;
-            BD result = listaLogin.Find( delegate (BD list)
+            SistemaLogin result = ListaLogin.Find( delegate (SistemaLogin list)
             {
                 resposta = true;
                 return list.Login == usuario;
